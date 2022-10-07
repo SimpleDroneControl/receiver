@@ -1,5 +1,13 @@
 #define main_time 1000
 
+#define up 50
+#define down 100
+#define back 200
+#define forward 300
+#define left 400
+#define right 500
+
+
 volatile int counter = 0;
 int analogPin = A2;
 
@@ -31,9 +39,27 @@ void loop() {
       i+=1;
     }
   }
-  
-  Serial.println(counter); 
+
+  if(counter <= forward + 25 && counter >= forward - 25){
+    Serial.println("f");
+  }
+  if(counter <= back + 25 && counter >= back - 25){
+    Serial.println("b");
+  }
+  if(counter <= left + 25 && counter >= left - 25){
+    Serial.println("l");
+  }
+  if(counter <= right + 25 && counter >= right - 25){
+    Serial.println("r");
+  }
+  if(counter <= up + 25 && counter >= up - 25){
+    Serial.println("u");
+  }
+  if(counter <= down + 25 && counter >= down - 25){
+    Serial.println("d");
+  }
+  //Serial.println(counter); 
   counter = 0;
-  Serial.print(" "); 
-  Serial.println(analogRead(analogPin));  
+  //Serial.print(" "); 
+  //Serial.println(analogRead(analogPin));  
 }
